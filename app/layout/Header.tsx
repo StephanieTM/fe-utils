@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useClassName } from 'app/utils';
+import { routes } from 'app/routers/routes';
 
 export default function Header(): JSX.Element {
   const c = useClassName();
@@ -8,8 +9,11 @@ export default function Header(): JSX.Element {
   return (
     <div className={c('app-header-container')}>
       <div className={c('menu-container')}>
-        <Link to="/" className={c('menu-link')}>Home</Link>
-        <Link to="/projects" className={c('menu-link')}>Projects</Link>
+        {routes.map(route => {
+          return route.showInHeader ? (
+            <Link key={route.code} to={route.link||''} className={c('menu-link')}>{route.title}</Link>
+          ) : null;
+        })}
       </div>
     </div>
   );

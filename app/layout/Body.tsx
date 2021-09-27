@@ -2,6 +2,7 @@ import React, { lazy, Suspense } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { Spinner } from '@chakra-ui/react';
 import { useClassName } from 'app/utils';
+import SideNav from './SideNav';
 import { IBodyProps } from './interface';
 
 export default function Body(props: IBodyProps): JSX.Element {
@@ -21,6 +22,9 @@ export default function Body(props: IBodyProps): JSX.Element {
 
   return (
     <div className={c('app-body-container')}>
+      <div className={c('app-body-side-nav')}>
+        <SideNav />
+      </div>
       <div className={c('app-body-content')}>
         <div className={c('app-body-route')}>
           <Suspense fallback={spinner}>
