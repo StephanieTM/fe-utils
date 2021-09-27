@@ -7,10 +7,11 @@ import './index.less';
 function getRoutes(allRouters: IRouteConfig[]): IRouteConfig[] {
   const getFlattenRoutes = (routeItem: IRouteConfig[] = allRouters, result: IRouteConfig[] = []): IRouteConfig[] => {
     routeItem.forEach(item => {
+      if (item.link) {
+        result.push(item);
+      }
       if (item.children) {
         result.concat(getFlattenRoutes(item.children, result));
-      } else {
-        result.push(item);
       }
     });
     return result;

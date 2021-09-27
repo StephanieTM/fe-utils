@@ -73,6 +73,7 @@
 }
 
 .app-body-container {
+  position: relative;
   height: 100%;
 
   &-pc {
@@ -98,6 +99,14 @@
 
     &-mobile {
       padding: @mobile-container-padding 0;
+    }
+  }
+
+  .app-body-side-nav {
+    &-pc {
+      position: absolute;
+      top: calc(@pc-header-height + 40px);
+      left: 40px;
     }
   }
 }

@@ -8,7 +8,7 @@ import { IValue, IApplication } from './interface';
 const appList = getApplication(routes);
 
 function useGlobalStore(): IValue {
-  const isMobile = useMediaQuery({ query: '(max-width: 540px)' });
+  const isMobile = useMediaQuery({ query: '(max-width: 1000px)' });
   const apps = useMemo(() => {
     return appList;
   }, []);
